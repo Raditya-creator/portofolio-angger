@@ -1,17 +1,19 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/089f6506-783b-45e9-9373-2587a3edff01" /># Portofolio Angger - P1-W05
-
-Portofolio pribadi saya hasil Modul P1-W05 Git, GitHub, dan Deploy ke Vercel.
-
+# Portofolio Angger Raditya Permata
+Website portofolio pribadi yang saya buat di Kelas Industri UBIG
+(Paket 1, Minggu 01 sampai 05).
+Website ini tampil rapi di ponsel, tablet, dan laptop.
 ## Tampilan
-![Screenshot Portofolio](img/foto-profil.png)
-
-## Live Demo
-Website bisa dibuka di: https://portofolio-angger-five.vercel.app/
-
-## Dibuat dengan
-- HTML, CSS
-- Git & GitHub
-- Vercel
-
----
-By Angger Raditya Permata - X RPL 1 - SMKN 1 Pasuruan
+![Tampilan beranda portofolio](img/tampilan-portofolio.png)
+## Fitur
+- Halaman **Beranda** berisi profil, hobi, cita-cita, keahlian, dan
+jadwal belajar
+- Halaman **Proyek** berisi daftar proyek dalam bentuk kartu
+- Halaman **Kontak** berisi form untuk menghubungi saya
+- Tampilan responsif dengan Flexbox dan *media query*
+## Teknologi
+- HTML5
+- CSS3 (Flexbox dan media query)
+- Git dan GitHub
+## Tautan
+- Website: https://portofolio-angger-five.vercel.app/
+- Dibuat oleh: Angger Raditya Permata, SMKN 1 Pasuruan
