@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/089f6506-783b-45e9-9373-2587a3edff01" /># Portofolio Angger - P1-W05
+# Portofolio Angger - P1-W05
 
 Portofolio pribadi saya hasil Modul P1-W05 Git, GitHub, dan Deploy ke Vercel.
 
