@@ -1,32 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kalkulator Nilai</title>
-  <style>
-    body { font-family: sans-serif; max-width: 400px; margin: 40px auto; }
-    input { display: block; width: 100%; padding: 8px; margin: 8px 0; }
-    button { padding: 10px 20px; cursor: pointer; }
-    #hasil { margin-top: 20px; font-weight: bold; background: #f0f0f0; padding: 10px; }
-  </style>
-</head>
-<body>
-  <h1>Kalkulator Nilai Rapor</h1>
-  
-  <label for="tugas">Nilai Tugas:</label>
-  <input type="number" id="tugas" placeholder="contoh: 85">
-  
-  <label for="uts">Nilai UTS:</label>
-  <input type="number" id="uts" placeholder="contoh: 78">
-  
-  <label for="uas">Nilai UAS:</label>
-  <input type="number" id="uas" placeholder="contoh: 89">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Nilai | Angger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <h1>Angger Raditya Permata</h1>
+        <nav class="menu-laptop">
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="proyek.html">Proyek</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="kalkulator.html">Kalkulator Nilai</a></li>
+          </ul>
+        </nav>
+        <details class="menu-ponsel">
+          <summary>Menu</summary>
+          <nav>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="proyek.html">Proyek</a></li>
+              <li><a href="kontak.html">Kontak</a></li>
+              <li><a href="kalkulator.html">Kalkulator Nilai</a></li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+    </header>
 
-  <button id="hitung">Hitung</button>
+    <main>
+      <div class="container">
+        <section class="kartu">
+          <h2>Kalkulator Nilai Rapor</h2>
+          <p>Hitung rata-rata Tugas, UTS, dan UAS secara otomatis.</p>
+          
+          <p>
+            <label for="tugas">Nilai Tugas:</label><br />
+            <input type="number" id="tugas" placeholder="contoh: 85" style="width:100%; padding:12px; margin-top:6px;" />
+          </p>
+          <p>
+            <label for="uts">Nilai UTS:</label><br />
+            <input type="number" id="uts" placeholder="contoh: 78" style="width:100%; padding:12px; margin-top:6px;" />
+          </p>
+          <p>
+            <label for="uas">Nilai UAS:</label><br />
+            <input type="number" id="uas" placeholder="contoh: 89" style="width:100%; padding:12px; margin-top:6px;" />
+          </p>
 
-  <p id="hasil">Hasil akan muncul di sini</p>
+          <button id="hitung" class="tombol">Hitung</button>
 
-  <script src="js/kalkulator.js"></script>
-</body>
+          <p id="hasil" style="margin-top:20px; font-weight:bold; background:#f0f0f0; padding:12px; border-radius:8px;">Hasil akan muncul di sini</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Kontak: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anggerraditya010@gmail.com" target="_blank">anggerraditya010@gmail.com</a> | <a href="https://github.com/Raditya-creator" target="_blank">GitHub</a> | <a href="https://www.youtube.com/@Angger.cod3" target="_blank">YouTube</a></p>
+      <p>&copy; 2026 Angger Raditya Permata. Dibuat di Kelas Industri UBIG.</p>
+    </footer>
+
+    <script src="js/kalkulator.js"></script>
+  </body>
 </html>

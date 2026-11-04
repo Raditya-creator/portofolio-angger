@@ -2,12 +2,12 @@
 // Kalkulator nilai rapor di Console
 
 // 1. Pesan pertama ke Console
-console.log("Halo, saya Andi!");
+console.log("Halo, saya Angger!");
 console.log("Ini latihan JavaScript pertamaku.");
 
 // 2. Data siswa
-const nama = "Andi Pratama";
-const kelas = "X PPLG 1";
+const nama = "Angger Raditya Permata";
+const kelas = "X RPL 1";
 const kkm = 75;
 let nilaiTugas = 85;
 let nilaiUts = 78;
@@ -35,7 +35,7 @@ const rata = hitungRataRata(tugas, uts, uas);
 return `${namaSiswa}: rata-rata ${rata}, predikat ${predikat(rata)}`;
 }
 
-// 4. Hasil nilai Andi
+// 4. Hasil nilai Angger
 const rataRata = hitungRataRata(nilaiTugas, nilaiUts, nilaiUas);
 const lulus = rataRata >= kkm;
 const dapatSertifikat = lulus && kehadiran >= 80;
