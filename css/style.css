@@ -15,17 +15,30 @@ img {
 }
 
 /* 2. Dasar halaman: warna dan huruf */
+:root {
+  --warna-utama: #1d3557;
+  --warna-judul: #1d3557;
+  --warna-aksen: #e63946;
+  --warna-tautan: #e63946;
+  --warna-latar: #f1faee;
+  --warna-teks: #333333;
+  --warna-kartu: #ffffff;
+  --warna-garis: #dddddd;
+}
+
 body {
   font-family: "Inter", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: #333333;
-  background-color: #F1FAEE;
+  color: var(--warna-teks);
+  background-color: var(--warna-latar);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Poppins", Arial, sans-serif;
-  color: #1D3557;
+  color: var(--warna-judul);
   line-height: 1.3;
 }
 
@@ -33,12 +46,14 @@ h2 {
   margin-bottom: 0.75rem;
 }
 
-p, ul, ol {
+p,
+ul,
+ol {
   margin-bottom: 1rem;
 }
 
 a {
-  color: #E63946;
+  color: var(--warna-tautan);
 }
 
 /* 3. Wadah, header, dan menu */
@@ -49,13 +64,13 @@ a {
 }
 
 header {
-  background-color: #1D3557;
-  color: #FFFFFF;
+  background-color: var(--warna-utama);
+  color: #ffffff;
   padding: 1rem 0;
 }
 
 header h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.5rem;
 }
 
@@ -79,7 +94,7 @@ nav a {
   display: inline-block;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
 }
@@ -91,7 +106,7 @@ nav a {
 
 .menu-ponsel summary {
   padding: 0.5rem 0.75rem;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -117,11 +132,11 @@ main {
 }
 
 .hero img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover; /* ini kuncinya biar gak lonjong */
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #0048ff;
+  border: 4px solid var(--warna-aksen);
 }
 
 .hero h2 {
@@ -132,17 +147,17 @@ main {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
-  background-color: #E63946;
-  color: #FFFFFF;
+  background-color: var(--warna-aksen);
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
 }
 
 .kartu {
-  background-color: #FFFFFF;
+  background-color: var(--warna-kartu);
   padding: 1rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #DDDDDD;
+  border: 1px solid var(--warna-garis);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -161,7 +176,7 @@ main {
 
 article img {
   border-radius: 8px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid var(--warna-garis);
 }
 
 /* 5. Tabel */
@@ -175,15 +190,16 @@ caption {
   margin-bottom: 0.5rem;
 }
 
-th, td {
-  border: 1px solid #CCCCCC;
+th,
+td {
+  border: 1px solid var(--warna-garis);
   padding: 0.5rem 0.75rem;
   text-align: left;
 }
 
 th {
-  background-color: #1D3557;
-  color: #FFFFFF;
+  background-color: var(--warna-utama);
+  color: #ffffff;
 }
 
 /* 6. Form */
@@ -191,33 +207,41 @@ label {
   font-weight: 600;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   max-width: 22rem;
   padding: 0.6rem;
   margin-top: 0.25rem;
-  border: 1px solid #CCCCCC;
+  border: 1px solid var(--warna-garis);
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
+  background-color: var(--warna-kartu);
+  color: var(--warna-teks);
 }
 
 button {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 6px;
-  background-color: #E63946;
-  color: #FFFFFF;
+  background-color: var(--warna-aksen);
+  color: #ffffff;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
 }
 
+.keterangan {
+  font-size: 0.875rem;
+}
+
 /* 7. Footer */
 footer {
-  background-color: #1D3557;
-  color: #F1FAEE;
+  background-color: var(--warna-utama);
+  color: #f1faee;
   text-align: center;
   padding: 1.5rem;
 }
@@ -227,7 +251,7 @@ footer p {
 }
 
 footer a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* 8. Tablet: lebar layar 768px ke atas */
@@ -264,4 +288,45 @@ footer a {
   .hero h2 {
     font-size: 2.75rem;
   }
+}
+
+/* 10. Tombol tema, filter, dan label kategori */
+.tombol-tema {
+  padding: 0.5rem 0.9rem;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  font-size: 0.9rem;
+}
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.tombol-filter {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--warna-garis);
+  background-color: var(--warna-kartu);
+  color: var(--warna-judul);
+}
+.label {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 999px;
+  background-color: var(--warna-latar);
+  color: var(--warna-judul);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 11. Tema gelap: isi variabel diganti saat body memiliki class gelap */
+body.gelap {
+  --warna-utama: #0b1526;
+  --warna-judul: #a8dadc;
+  --warna-tautan: #ff8a8a;
+  --warna-latar: #121a24;
+  --warna-teks: #e3e8ee;
+  --warna-kartu: #1c2836;
+  --warna-garis: #34465a;
 }

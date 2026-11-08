@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angger | Beranda</title>
+    <link rel="icon" href="img/p1.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,6 +25,10 @@
             <li><a href="kalkulator.html">Kalkulator Nilai</a></li>
           </ul>
         </nav>
+
+        <button type="button" id="tombol-tema" class="tombol-tema">
+          Mode Gelap
+        </button>
         <!-- Tantangan: menu ponsel yang bisa dibuka-tutup -->
         <details class="menu-ponsel">
           <summary>Menu</summary>
@@ -91,14 +96,8 @@
 
           <section class="kartu">
             <h2>Keahlian</h2>
-            <ul>
-              <li>HTML5 Semantic</li>
-              <li>CSS3 Flexbox</li>
-              <li>Responsive Design</li>
-              <li>Media Queries</li>
-              <li>Chrome DevTools</li>
-              <li>Git & GitHub</li>
-            </ul>
+            <ul id="daftar-skill"></ul>
+            <p id="jumlah-skill"></p>
           </section>
         </div>
 
@@ -174,7 +173,6 @@
       </p>
       <p>&copy; 2026 Angger Raditya Permata. Dibuat di Kelas Industri UBIG.</p>
     </footer>
-    <script src="js/latihan.js"></script>
-    <script src="js/logika.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
