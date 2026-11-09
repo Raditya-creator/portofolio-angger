@@ -19,24 +19,36 @@ if (daftarSkill) {
     item.textContent = `${skill.nama} (${skill.level})`;
     daftarSkill.appendChild(item);
   });
-  jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`;
+  if (jumlahSkill) {
+    jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`;
+  }
 }
 
 // 2. Tema gelap (semua halaman)
 const tombolTema = document.querySelector("#tombol-tema");
-tombolTema.addEventListener("click", () => {
-  document.body.classList.toggle("gelap");
-  if (document.body.classList.contains("gelap")) {
+if (tombolTema) {
+  if (localStorage.getItem("tema") === "gelap") {
+    document.body.classList.add("gelap");
     tombolTema.textContent = "Mode Terang";
   } else {
     tombolTema.textContent = "Mode Gelap";
   }
-});
+  tombolTema.addEventListener("click", () => {
+    document.body.classList.toggle("gelap");
+    if (document.body.classList.contains("gelap")) {
+      localStorage.setItem("tema", "gelap");
+      tombolTema.textContent = "Mode Terang";
+    } else {
+      localStorage.setItem("tema", "terang");
+      tombolTema.textContent = "Mode Gelap";
+    }
+  });
+}
 
 // 3. Penghitung karakter pesan (halaman Kontak)
 const kotakPesan = document.querySelector("#pesan");
 const hitungKarakter = document.querySelector("#hitung-karakter");
-if (kotakPesan) {
+if (kotakPesan && hitungKarakter) {
   kotakPesan.addEventListener("input", () => {
     hitungKarakter.textContent = `${kotakPesan.value.length}/300 karakter`;
   });
@@ -87,8 +99,10 @@ const proyek = [
     deskripsi: "Lima fungsi logika yang masing-masing diuji 3 masukan.",
   },
 ];
+
 const daftarProyek = document.querySelector("#daftar-proyek");
 const jumlahProyek = document.querySelector("#jumlah-proyek");
+
 function buatKartu(item) {
   return `
 <article class="kartu">
@@ -98,14 +112,27 @@ function buatKartu(item) {
 <p>${item.deskripsi}</p>
 </article>`;
 }
+
 function tampilkanProyek(daftar) {
+  if (!daftarProyek) return;
   const semuaKartu = daftar.map((item) => buatKartu(item));
   daftarProyek.innerHTML = semuaKartu.join("");
-  jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+  if (jumlahProyek) {
+    jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+  }
 }
+
 function pasangFilter(idTombol, kategori) {
   const tombol = document.querySelector(idTombol);
+  if (!tombol) return;
+
   tombol.addEventListener("click", () => {
+    const tombolLama = document.querySelector(".tombol-filter.aktif");
+    if (tombolLama) {
+      tombolLama.classList.remove("aktif");
+    }
+    tombol.classList.add("aktif");
+
     if (kategori === "Semua") {
       tampilkanProyek(proyek);
     } else {
@@ -113,8 +140,11 @@ function pasangFilter(idTombol, kategori) {
     }
   });
 }
+
 if (daftarProyek) {
   tampilkanProyek(proyek);
   pasangFilter("#filter-semua", "Semua");
-  pasangFilter("#filter-javascript", "JavaScript");
+  pasangFilter("#filter-html", "HTML");
+  pasangFilter("#filter-css", "CSS");
+  pasangFilter("#filter-js", "JavaScript");
 }

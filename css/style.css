@@ -136,7 +136,7 @@ main {
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid var(--warna-aksen);
+  border: 4px solid #333333;
 }
 
 .hero h2 {
@@ -297,7 +297,8 @@ footer a {
   background-color: transparent;
   font-size: 0.9rem;
 }
-.filter {
+.filter,
+.filter-proyek {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -309,6 +310,12 @@ footer a {
   background-color: var(--warna-kartu);
   color: var(--warna-judul);
 }
+.tombol-filter.aktif {
+  background-color: var(--warna-aksen);
+  border-color: var(--warna-aksen);
+  color: #ffffff;
+}
+
 .label {
   display: inline-block;
   padding: 0.1rem 0.6rem;
@@ -329,4 +336,21 @@ body.gelap {
   --warna-teks: #e3e8ee;
   --warna-kartu: #1c2836;
   --warna-garis: #34465a;
+}
+body.gelap .tombol-filter.aktif {
+  background-color: #ff8a8a;
+  border-color: #ff8a8a;
+  color: #0b1526;
+}
+
+/* Hasil kalkulator - biar keliatan di 2 tema */
+#hasil {
+  background-color: var(--warna-kartu);
+  color: var(--warna-teks);
+  border: 1px solid var(--warna-garis);
+}
+
+body.gelap #hasil {
+  background-color: var(--warna-kartu);
+  color: var(--warna-teks);
 }
