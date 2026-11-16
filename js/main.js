@@ -59,50 +59,7 @@ if (kotakPesan && hitungKarakter) {
 }
 
 // 4. Daftar proyek dan filter (halaman Proyek)
-const proyek = [
-  {
-    judul: "Halaman Profil Pertama",
-    kategori: "HTML",
-    gambar: "img/proyek-profil.png",
-    alt: "Tangkapan layar halaman profil Angger Raditya Permata",
-    deskripsi: "Halaman web pertama saya, dibuat dengan HTML dasar.",
-  },
-  {
-    judul: "Form Kontak",
-    kategori: "HTML",
-    gambar: "img/proyek-kontak.png",
-    alt: "Tangkapan layar form kontak berisi lima isian",
-    deskripsi: "Form dengan label dan validasi bawaan browser.",
-  },
-  {
-    judul: "Tabel Jadwal Belajar",
-    kategori: "HTML",
-    gambar: "img/proyek-jadwal.png",
-    alt: "Tangkapan layar tabel jadwal belajar mandiri",
-    deskripsi: "Jadwal belajar mingguan dengan thead dan tbody.",
-  },
-  {
-    judul: "Portofolio Responsif",
-    kategori: "CSS",
-    gambar: "img/proyek-responsif.png",
-    alt: "Tangkapan layar portofolio di ponsel dan laptop",
-    deskripsi: "Rapi di ponsel, tablet, dan laptop dengan Flexbox.",
-  },
-  {
-    judul: "Kalkulator Nilai Rapor",
-    kategori: "JavaScript",
-    gambar: "img/proyek-kalkulator.png",
-    alt: "Tangkapan layar hasil kalkulator nilai di Console",
-    deskripsi: "Rata-rata dan predikat nilai dengan fungsi JavaScript.",
-  },
-  {
-    judul: "Lima Soal Logika",
-    kategori: "JavaScript",
-    gambar: "img/proyek-logika.png",
-    alt: "Tangkapan layar hasil uji lima soal logika",
-    deskripsi: "Lima fungsi logika yang masing-masing diuji 3 masukan.",
-  },
-];
+let proyek = [];
 
 const daftarProyek = document.querySelector("#daftar-proyek");
 const jumlahProyek = document.querySelector("#jumlah-proyek");
@@ -145,8 +102,27 @@ function pasangFilter(idTombol, kategori) {
   });
 }
 
+async function muatProyek() {
+  if (jumlahProyek) {
+    jumlahProyek.textContent = "Memuat proyek...";
+  }
+  try {
+    const response = await fetch("data/proyek.json");
+    if (!response.ok) {
+      throw new Error(`Status ${response.status}`);
+    }
+    proyek = await response.json();
+    tampilkanProyek(proyek);
+  } catch (error) {
+    if (jumlahProyek) {
+      jumlahProyek.textContent = "Data proyek gagal dimuat.";
+    }
+    console.error(error);
+  }
+}
+
 if (daftarProyek) {
-  tampilkanProyek(proyek);
+  muatProyek();
   pasangFilter("#filter-semua", "Semua");
   pasangFilter("#filter-html", "HTML");
   pasangFilter("#filter-css", "CSS");
@@ -156,7 +132,7 @@ if (daftarProyek) {
 // 5. Repositori GitHub terbaru (halaman Proyek)
 const username = "Raditya-creator";
 const alamatRepo = `https://api.github.com/users/${username}/repos`;
-const pilihan = "?sort=updated&per_page=6";
+const pilihan = "?per_page=100";
 const daftarRepo = document.querySelector("#daftar-repo");
 const statusRepo = document.querySelector("#status-repo");
 
@@ -167,13 +143,24 @@ async function ambilRepo() {
     if (!response.ok) {
       throw new Error(`Status ${response.status}`);
     }
-    const repos = await response.json();
+    let repos = await response.json();
+
+    // 1. Urutkan sendiri dari yang terbaru
+    repos.sort((a, b) => b.updated_at.localeCompare(a.updated_at));
+
+    // 2. Ambil 6 teratas
+    repos = repos.slice(0, 6);
+
     repos.forEach((repo) => {
       const item = document.createElement("li");
       const tautan = document.createElement("a");
       tautan.href = repo.html_url;
       tautan.target = "_blank";
-      tautan.textContent = repo.name;
+
+      // 3. Cadangan kalau bahasa null
+      const bahasa = repo.language || "tanpa bahasa";
+
+      tautan.textContent = `${repo.name} (${bahasa}, ${repo.stargazers_count} bintang)`;
       item.appendChild(tautan);
       daftarRepo.appendChild(item);
     });
