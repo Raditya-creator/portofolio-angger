@@ -175,3 +175,12 @@ async function ambilRepo() {
 if (daftarRepo) {
   ambilRepo();
 }
+
+// 6. Tombol Kembali ke Atas
+const tombolAtas = document.getElementById("tombol-atas");
+
+if (tombolAtas) {
+  tombolAtas.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
